@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+simulador-financiamentos,com.simulador.resource,GlobalExceptionMapper,0,65,0,8,0,15,0,6,0,2
+simulador-financiamentos,com.simulador.resource,SimulacaoResource,0,50,0,2,0,12,0,4,0,3
+simulador-financiamentos,com.simulador.dto,SimulacaoRequestDTO,0,3,0,0,0,1,0,1,0,1
+simulador-financiamentos,com.simulador.dto,SimulacaoResponseDTO.MemoriaCalculoDTO,0,3,0,0,0,1,0,1,0,1
+simulador-financiamentos,com.simulador.dto,SimulacaoResponseDTO,0,3,0,0,0,1,0,1,0,1
+simulador-financiamentos,com.simulador.repository,SimulacaoRepository,0,3,0,0,0,1,0,1,0,1
+simulador-financiamentos,com.simulador.service,SimulacaoService,0,240,0,4,0,57,0,10,0,8
+simulador-financiamentos,com.simulador.model,Simulacao,0,11,0,0,0,4,0,1,0,1
+simulador-financiamentos,com.simulador.model,MemoriaCalculo,0,3,0,0,0,1,0,1,0,1

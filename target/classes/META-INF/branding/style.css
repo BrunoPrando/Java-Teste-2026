@@ -1,0 +1,106 @@
+/* =============================================
+   CAIXA ECONÔMICA FEDERAL
+   Azul: #1c60ab | Laranja: #ef9c00
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+* { font-family: 'Nunito Sans', Arial, sans-serif !important; }
+
+/* TOPBAR */
+.swagger-ui .topbar {
+  background-color: #1c60ab !important;
+  border-bottom: 5px solid #ef9c00 !important;
+  padding: 12px 24px !important;
+}
+.swagger-ui .topbar .topbar-wrapper a span,
+.swagger-ui .topbar .topbar-wrapper a svg { display: none !important; }
+
+/* TÍTULO */
+.swagger-ui .info .title { color: #1c60ab !important; font-weight: 700 !important; }
+
+/* TAG/SEÇÃO */
+.swagger-ui .opblock-tag {
+  border-bottom: 2px solid #1c60ab !important;
+  color: #1c60ab !important;
+  font-weight: 700 !important;
+}
+
+/* Campos inline (valorInicial, taxaMensal etc) — cor azul no lugar do roxo */
+.swagger-ui .markdown code,
+.swagger-ui .renderedMarkdown code {
+  color: #1c60ab !important;
+  background: rgba(28,96,171,0.08) !important;
+  border-radius: 4px !important;
+  padding: 2px 6px !important;
+  font-size: 13px !important;
+}
+
+/* POST azul */
+.swagger-ui .opblock.opblock-post {
+  border-color: #1c60ab !important;
+  background: rgba(28,96,171,0.04) !important;
+  border-radius: 8px !important;
+}
+.swagger-ui .opblock.opblock-post .opblock-summary-method {
+  background: #1c60ab !important;
+  border-radius: 6px !important;
+}
+
+/* GET laranja */
+.swagger-ui .opblock.opblock-get {
+  border-color: #ef9c00 !important;
+  background: rgba(239,156,0,0.04) !important;
+  border-radius: 8px !important;
+}
+.swagger-ui .opblock.opblock-get .opblock-summary-method {
+  background: #c47f00 !important;
+  border-radius: 6px !important;
+}
+
+/* BOTÃO EXECUTAR */
+.swagger-ui .btn.execute {
+  background-color: #1c60ab !important;
+  border-color: #1c60ab !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+}
+.swagger-ui .btn.execute:hover { background-color: #0a3d7a !important; }
+
+/* BOTÃO CANCELAR */
+.swagger-ui .try-out__btn.cancel {
+  border-color: #ef9c00 !important;
+  color: #c47f00 !important;
+  border-radius: 6px !important;
+}
+
+/* RESPONSE STATUS */
+.swagger-ui .responses-table .response-col_status { color: #1c60ab !important; font-weight: 700 !important; }
+.swagger-ui a { color: #1c60ab !important; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #1c60ab; border-radius: 4px; }
+
+/* =============================================
+   TRADUÇÕES — apenas os botões específicos
+   Usando visibility hidden + ::after para não
+   afetar outros elementos da página
+   ============================================= */
+
+/* "Try it out" → "Simular Financiamento" */
+button.try-out__btn:not(.cancel) > span { visibility: hidden; position: absolute; }
+button.try-out__btn:not(.cancel)::after { content: "Simular Financiamento"; }
+
+/* "Cancel" → "Cancelar" */
+button.try-out__btn.cancel > span { visibility: hidden; position: absolute; }
+button.try-out__btn.cancel::after { content: "Cancelar"; }
+
+/* "Execute" → "Executar" */
+.execute-wrapper button.btn.execute > span { visibility: hidden; position: absolute; }
+.execute-wrapper button.btn.execute::after { content: "Executar"; }
+
+/* "Clear" → "Limpar" */
+button.btn-clear > span { visibility: hidden; position: absolute; }
+button.btn-clear::after { content: "Limpar"; }

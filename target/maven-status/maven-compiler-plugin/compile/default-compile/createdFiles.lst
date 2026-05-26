@@ -1,0 +1,9 @@
+com\simulador\service\SimulacaoService.class
+com\simulador\model\MemoriaCalculo.class
+com\simulador\resource\GlobalExceptionMapper.class
+com\simulador\dto\SimulacaoResponseDTO$MemoriaCalculoDTO.class
+com\simulador\repository\SimulacaoRepository.class
+com\simulador\dto\SimulacaoRequestDTO.class
+com\simulador\model\Simulacao.class
+com\simulador\resource\SimulacaoResource.class
+com\simulador\dto\SimulacaoResponseDTO.class
