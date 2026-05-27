@@ -26,9 +26,9 @@ import java.util.stream.Collectors;
 @Consumes(MediaType.APPLICATION_JSON)
 @Tag(
     name = "Simulações",
-    description = "Operações para simular financiamentos com juros compostos. " +
-                  "Informe o valor do empréstimo, a taxa mensal e o prazo para obter " +
-                  "o valor total a pagar, o total de juros e a evolução mês a mês."
+    description = "Operações para simular financiamentos com juros compostos. - " +
+                  "Listagem com simulações ja geradas - " +
+                  "Busca Simulação através de ID."
 )
 public class SimulacaoResource {
 
