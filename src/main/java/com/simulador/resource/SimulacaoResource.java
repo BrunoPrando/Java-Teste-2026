@@ -35,9 +35,7 @@ public class SimulacaoResource {
     @Inject SimulacaoService service;
     @Inject Validator validator;
 
-    // ----------------------------------------------------------------
-    // 1. POST — Criar simulação
-    // ----------------------------------------------------------------
+    // 1. POST /api/simulacoes
     @POST
     @Operation(
         summary = "Criar nova simulação de financiamento",
@@ -69,7 +67,7 @@ public class SimulacaoResource {
     @APIResponses({
         @APIResponse(responseCode = "201", description = "Simulação criada com sucesso",
                      content = @Content(schema = @Schema(implementation = SimulacaoResponseDTO.class))),
-        @APIResponse(responseCode = "400", description = "Dados de entrada inválidos — verifique os campos obrigatórios"),
+        @APIResponse(responseCode = "400", description = "Dados de entrada inválidos"),
         @APIResponse(responseCode = "500", description = "Erro interno do servidor")
     })
     public Response criarSimulacao(SimulacaoRequestDTO request) {
@@ -85,20 +83,15 @@ public class SimulacaoResource {
         return Response.status(Response.Status.CREATED).entity(response).build();
     }
 
-    // ----------------------------------------------------------------
-    // 2. GET /{id} — Consultar por ID
-    // ----------------------------------------------------------------
+    // 2. GET /api/simulacoes/{id}
     @GET
     @Path("/{id}")
     @Operation(
-        summary = "Consultar simulação existente",
+        summary = "Consultar simulação por ID",
         description = """
             ## Como usar
 
             Informe o **id** retornado ao criar a simulação e clique em **Execute**.
-
-            Você receberá todos os dados da simulação, incluindo a memória de cálculo \
-            completa com a evolução mês a mês do saldo devedor.
 
             > Se o id não existir, a API retorna **404 Not Found**.
             """
@@ -106,17 +99,16 @@ public class SimulacaoResource {
     @APIResponses({
         @APIResponse(responseCode = "200", description = "Simulação encontrada",
                      content = @Content(schema = @Schema(implementation = SimulacaoResponseDTO.class))),
-        @APIResponse(responseCode = "404", description = "Simulação não encontrada para o ID informado")
+        @APIResponse(responseCode = "404", description = "Simulação não encontrada")
     })
     public Response buscarSimulacao(@PathParam("id") Long id) {
         SimulacaoResponseDTO response = service.buscarPorId(id);
         return Response.ok(response).build();
     }
 
-    // ----------------------------------------------------------------
-    // 3. GET — Listar todas
-    // ----------------------------------------------------------------
+    // 3. GET /api/simulacoes/lista
     @GET
+    @Path("/lista")
     @Operation(
         summary = "Listar todas as simulações",
         description = """
@@ -124,14 +116,11 @@ public class SimulacaoResource {
 
             Clique em **Execute** para ver todas as simulações já realizadas.
 
-            Retorna uma lista com todas as simulações persistidas no banco,
-            incluindo a memória de cálculo completa de cada uma.
-
             > Se ainda não houver simulações, retorna uma lista vazia `[]`.
             """
     )
     @APIResponses({
-        @APIResponse(responseCode = "200", description = "Lista de simulações retornada com sucesso"),
+        @APIResponse(responseCode = "200", description = "Lista retornada com sucesso"),
         @APIResponse(responseCode = "500", description = "Erro interno do servidor")
     })
     public Response listarSimulacoes() {

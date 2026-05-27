@@ -271,7 +271,7 @@ class SimulacaoResourceTest {
 
         // Lista todas
         given()
-            .when().get("/api/simulacoes")
+            .when().get("/api/simulacoes/lista")
             .then()
             .statusCode(200)
             .body("$", not(empty()));

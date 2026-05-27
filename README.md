@@ -1,4 +1,4 @@
-G# Simulador de Financiamentos — Java / Quarkus
+# Simulador de Financiamentos — Java / Quarkus
 
 API REST para simulação de financiamentos com juros compostos, memória de cálculo detalhada e persistência em banco H2 embutido.
 
@@ -6,11 +6,11 @@ API REST para simulação de financiamentos com juros compostos, memória de cá
 
 ## Pré-Requisitos
 
-| Ferramenta | Versão Mínima                                   |
-|-----------|-------------------------------------------------|
-| Java (JDK) | 23+ inclusive com o Java 25 proposto no desafio |
-| Maven | 3.8.6+                                          |
-| (Nenhum Docker necessário) | —                                               |
+| Ferramenta | Versão Mínima |
+|-----------|---------------|
+| Java (JDK) | 23+ |
+| Maven | 3.8.6+ |
+| (Nenhum Docker necessário) | — |
 
 Verifique com:
 ```bash

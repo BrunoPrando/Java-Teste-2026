@@ -1,5 +1,5 @@
 /* =============================================
-   CAIXA ECONÔMICA FEDERAL
+   CEF — FINANCIAMENTOS
    Azul: #1c60ab | Laranja: #ef9c00
    ============================================= */
 
@@ -7,26 +7,80 @@
 
 * { font-family: 'Nunito Sans', Arial, sans-serif !important; }
 
-/* TOPBAR */
+/* ---- TOPBAR ---- */
 .swagger-ui .topbar {
   background-color: #1c60ab !important;
   border-bottom: 5px solid #ef9c00 !important;
-  padding: 12px 24px !important;
+  padding: 10px 24px !important;
 }
-.swagger-ui .topbar .topbar-wrapper a span,
-.swagger-ui .topbar .topbar-wrapper a svg { display: none !important; }
+.swagger-ui .topbar .topbar-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  position: relative !important;
+  gap: 16px !important;
+}
 
-/* TÍTULO */
+/* Esconde TODOS os links do topbar (logo.png + duplicatas) */
+.swagger-ui .topbar .topbar-wrapper a {
+  display: none !important;
+}
+
+/* Logo embutida via ::before no topbar-wrapper */
+.swagger-ui .topbar .topbar-wrapper::before {
+  content: "" !important;
+  display: block !important;
+  width: 52px !important;
+  height: 42px !important;
+  flex-shrink: 0 !important;
+  background-image: url("logo.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+/* Nome ao lado da logo via elemento separado */
+.swagger-ui .topbar .topbar-wrapper::after {
+  content: "CEF - FINANCIAMENTOS" !important;
+  color: #ffffff !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  display: block !important;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+/* Versão à direita */
+.swagger-ui .topbar .download-url-wrapper {
+  margin-left: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+.swagger-ui .topbar .download-url-wrapper::before {
+  content: "Simulador de Financiamentos  v1.0.0" !important;
+  color: #ef9c00 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+}
+.swagger-ui .topbar .download-url-wrapper .download-url-input,
+.swagger-ui .topbar .download-url-wrapper .download-url-button { display: none !important; }
+
+/* ---- TÍTULO ---- */
 .swagger-ui .info .title { color: #1c60ab !important; font-weight: 700 !important; }
 
-/* TAG/SEÇÃO */
+/* ---- TAG/SEÇÃO ---- */
 .swagger-ui .opblock-tag {
   border-bottom: 2px solid #1c60ab !important;
   color: #1c60ab !important;
   font-weight: 700 !important;
 }
 
-/* Campos inline (valorInicial, taxaMensal etc) — cor azul no lugar do roxo */
+/* ---- CAMPOS INLINE — azul ---- */
 .swagger-ui .markdown code,
 .swagger-ui .renderedMarkdown code {
   color: #1c60ab !important;
@@ -36,7 +90,7 @@
   font-size: 13px !important;
 }
 
-/* POST azul */
+/* ---- POST — azul ---- */
 .swagger-ui .opblock.opblock-post {
   border-color: #1c60ab !important;
   background: rgba(28,96,171,0.04) !important;
@@ -47,7 +101,7 @@
   border-radius: 6px !important;
 }
 
-/* GET laranja */
+/* ---- GET — laranja ---- */
 .swagger-ui .opblock.opblock-get {
   border-color: #ef9c00 !important;
   background: rgba(239,156,0,0.04) !important;
@@ -58,7 +112,7 @@
   border-radius: 6px !important;
 }
 
-/* BOTÃO EXECUTAR */
+/* ---- BOTÃO EXECUTAR ---- */
 .swagger-ui .btn.execute {
   background-color: #1c60ab !important;
   border-color: #1c60ab !important;
@@ -68,39 +122,48 @@
 }
 .swagger-ui .btn.execute:hover { background-color: #0a3d7a !important; }
 
-/* BOTÃO CANCELAR */
-.swagger-ui .try-out__btn.cancel {
-  border-color: #ef9c00 !important;
-  color: #c47f00 !important;
-  border-radius: 6px !important;
-}
-
-/* RESPONSE STATUS */
+/* ---- MISC ---- */
 .swagger-ui .responses-table .response-col_status { color: #1c60ab !important; font-weight: 700 !important; }
 .swagger-ui a { color: #1c60ab !important; }
-
-/* SCROLLBAR */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-thumb { background: #1c60ab; border-radius: 4px; }
 
 /* =============================================
-   TRADUÇÕES — apenas os botões específicos
-   Usando visibility hidden + ::after para não
-   afetar outros elementos da página
+   TRADUÇÕES DOS BOTÕES
    ============================================= */
-
-/* "Try it out" → "Simular Financiamento" */
-button.try-out__btn:not(.cancel) > span { visibility: hidden; position: absolute; }
-button.try-out__btn:not(.cancel)::after { content: "Simular Financiamento"; }
-
-/* "Cancel" → "Cancelar" */
-button.try-out__btn.cancel > span { visibility: hidden; position: absolute; }
-button.try-out__btn.cancel::after { content: "Cancelar"; }
-
-/* "Execute" → "Executar" */
-.execute-wrapper button.btn.execute > span { visibility: hidden; position: absolute; }
-.execute-wrapper button.btn.execute::after { content: "Executar"; }
-
-/* "Clear" → "Limpar" */
-button.btn-clear > span { visibility: hidden; position: absolute; }
-button.btn-clear::after { content: "Limpar"; }
+button.try-out__btn:not(.cancel) {
+  overflow: hidden !important; text-indent: -9999px !important;
+  white-space: nowrap !important; position: relative !important; min-width: 80px !important;
+}
+button.try-out__btn:not(.cancel)::after {
+  content: "Testar" !important; text-indent: 0 !important;
+  position: absolute !important; inset: 0 !important;
+  display: flex !important; align-items: center !important;
+  justify-content: center !important; font-size: 13px !important; font-weight: 600 !important;
+}
+button.try-out__btn.cancel {
+  overflow: hidden !important; text-indent: -9999px !important;
+  white-space: nowrap !important; position: relative !important; min-width: 90px !important;
+}
+button.try-out__btn.cancel::after {
+  content: "Cancelar" !important; text-indent: 0 !important;
+  position: absolute !important; inset: 0 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+}
+.execute-wrapper button.btn.execute {
+  overflow: hidden !important; text-indent: -9999px !important; position: relative !important;
+}
+.execute-wrapper button.btn.execute::after {
+  content: "Executar" !important; text-indent: 0 !important;
+  position: absolute !important; inset: 0 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+}
+button.btn-clear {
+  overflow: hidden !important; text-indent: -9999px !important;
+  white-space: nowrap !important; position: relative !important; min-width: 80px !important;
+}
+button.btn-clear::after {
+  content: "Limpar" !important; text-indent: 0 !important;
+  position: absolute !important; inset: 0 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+}
